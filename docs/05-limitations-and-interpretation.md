@@ -1,6 +1,6 @@
 # 05 — Limitations and Interpretation
 
-[Back to README](../README.md) | [Previous: Choosing a Tool](04-choosing-a-tool.md)
+[Back to README](../README.md) | [Previous: Choosing a Tool](04-choosing-a-tool.md) | [Next: Applications](06-applications.md)
 
 ## Fundamental limitations
 
