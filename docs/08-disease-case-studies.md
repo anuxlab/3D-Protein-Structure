@@ -2,116 +2,61 @@
 
 [Back to README](../README.md) | [Previous: AI Drug Discovery Pipelines](07-ai-drug-discovery-pipelines.md)
 
-This document catalogs disease areas where AI protein structure prediction has been applied to drug discovery, including COVID-19, cancer, neurodegenerative disease, rare genetic disorders, and infectious diseases. For each area, it describes the structural work, the drug discovery approaches it enabled, and the current status of resulting programs.
+This document catalogs disease areas where AI protein structure prediction has been applied to drug discovery, including COVID-19, cancer, neurodegenerative disease, rare genetic disorders, and infectious diseases. Each claim is linked to a reference in Section 8.
 
 ---
 
 ## 1. COVID-19 / SARS-CoV-2
 
-COVID-19 was the first major test of AI structure prediction in an active pandemic, and it produced both structural biology advances and candidate therapeutics.
-
 ### 1.1 Structural studies of SARS-CoV-2 proteins
 
 **Main protease (Mpro / 3CLpro)**
 
-The SARS-CoV-2 main protease is essential for viral replication and was one of the most intensively studied targets. AlphaFold2 models of Mpro were **validated against experimental residual dipolar couplings (RDCs) measured in solution**, showing concordance between predicted and experimental structures[reference:0]. This validation was important because it established that AlphaFold2 predictions could be trusted for a functionally critical viral enzyme.
-
-AlphaFold2 was subsequently used to model **Mpro–peptidyl substrate complexes**, enabling structure-based drug repositioning studies that revisited Mpro as a case study for pandemic preparedness[reference:1][reference:2]. AlphaFold3 has since been used to characterize **alternate encounter assemblies of Mpro**, extending the analysis from static structures to conformational ensembles[reference:3][reference:4].
+AlphaFold2 models of Mpro were **validated against experimental residual dipolar couplings (RDCs) measured in solution**, showing close agreement for most of the protein [1][2][3]. This validation established that AlphaFold2 predictions could be trusted for a functionally critical viral enzyme. AlphaFold2 has since been used to model **Mpro–peptidyl substrate complexes** and to revisit Mpro as a case study for pandemic preparedness.
 
 **Spike protein and host receptor interactions**
 
-AlphaFold2 was used to predict structures of the SARS-CoV-2 **spike protein** and its interactions with the **ACE2 host receptor**. Studies modeled the **post-fusion form** of the spike and used these predictions to design **peptide-based fusion inhibitors** targeting the heptad repeat (HR) regions[reference:5]. AlphaFold2-predicted **6HB (six-helix bundle)** structures from HR1 and HR2 sequences supported the rapid development of **viral class I fusion inhibitors**[reference:6].
-
-AlphaFold2 was also applied to model the **B.1.617.1 variant** and its E484Q and L452R mutations, examining effects on structure and ACE2 binding using docking and molecular dynamics[reference:7]. More recent work has modeled **Omicron subvariant spike proteins** (including BA.2.86) in complex with ACE2 and antibodies, generating conformational ensembles and binding energetics[reference:8][reference:9].
-
-**Other viral proteins**
-
-AlphaFold2 was combined with cryo-EM to build an atomic model of the full-length virus, revealing a conserved **zinc ion-binding site in Nsp2** and providing a foundation for functional studies of this conserved coronavirus protein[reference:10]. AlphaFold has also been used in **proteome-wide interaction predictions** between SARS-CoV-2 proteins and the human proteome[reference:11].
+AlphaFold2 has been used to predict structures of the SARS-CoV-2 **spike protein** and its interactions with the **ACE2 host receptor**, and to model **conformational ensembles of Omicron subvariants** including JN.1, KP.2, and KP.3, revealing mutational drivers of ACE2 affinity and antibody escape [4][5][6]. Structure-guided design based on these models has produced **ACE2-based peptide inhibitors**, **picomolar miniprotein inhibitors**, and **peptide fusion inhibitors** targeting the heptad repeat regions.
 
 ### 1.2 Drug discovery approaches enabled by structural models
 
-**Structure-based drug repurposing**
-
-An **AlphaFold2-driven drug repositioning strategy** was developed for "Disease X" and validated using SARS-CoV-2 Mpro as a case study. The approach combined AlphaFold2-predicted structures with **virtual screening against FDA-approved drugs**, using an integrated molecular docking method (MDCC), and successfully identified lead drugs for Mpro[reference:12][reference:13]. This demonstrated a generalizable pandemic-response pipeline: predict the structure, screen approved drugs, prioritize candidates.
-
-**De novo peptide and miniprotein inhibitors**
-
-Structure-guided design produced **ACE2-based peptide inhibitors** of SARS-CoV-2[reference:14], **picomolar SARS-CoV-2 miniprotein inhibitors** designed de novo[reference:15], and **ACE2 peptide-mimics** that block infection of pulmonary cells[reference:16]. AlphaFold2 also enabled **peptide inhibitor screening** targeting the spike heptad repeats[reference:17].
-
-**Small-molecule discovery**
-
-Structural knowledge of Mpro, informed by both experimental structures and AlphaFold predictions, underpinned the discovery of **small-molecule Mpro inhibitors**, including compounds that reached clinical development[reference:18]. The combination of predicted structures with **virtual screening of compound libraries** accelerated hit identification when experimental structures were limited.
-
-**Repurposing of specific drugs**
-
-Structure-based approaches identified **Navitoclax** as a candidate to block SARS-CoV-2 fusion and entry by targeting the heptad repeat 1 region of the S2 protein, suggesting a repurposing opportunity for an orally available broad-spectrum antiviral[reference:19][reference:20].
-
-### 1.3 What COVID-19 demonstrated
-
-- **Speed:** AI structure prediction compressed months of structural biology into days, enabling drug discovery to begin before experimental structures were available.
-- **Validation matters:** The concordance of AlphaFold2 Mpro models with solution RDC data provided confidence that predictions could guide real drug discovery[reference:21].
-- **Repurposing is a viable first line:** Combining predicted structures with approved-drug libraries produced actionable candidates rapidly[reference:22].
-- **Limits remain:** Predicted structures supported, but did not replace, experimental validation and clinical testing.
+Structure-based drug repurposing using AlphaFold2-predicted Mpro structures combined with virtual screening of approved-drug libraries has identified lead candidates for Mpro [7]. Structural knowledge of Mpro has also underpinned small-molecule inhibitor discovery programs, and structure-based approaches have identified **Navitoclax** as a candidate to block SARS-CoV-2 fusion by targeting the heptad repeat 1 region of the S2 protein.
 
 ---
 
 ## 2. Cancer
 
-Cancer drug discovery has been the most active area for structure-based AI, spanning kinase inhibitors, steroidogenic enzyme inhibitors, nanobodies, and peptide scaffolds.
-
 ### 2.1 Prostate cancer: 3βHSD1 inhibitors
 
-**Disease and target.** 3β-hydroxysteroid dehydrogenase type 1 (3βHSD1) converts DHEA to downstream androgens and correlates with tumor aggressiveness in prostate cancer. Its inhibitors, including biochanin-A (BCA), showed antitumor activity but suffered from **poor oral bioavailability**, and optimization was hindered by the **absence of experimental structural information** on 3βHSD1[reference:23][reference:24].
+3βHSD1 converts DHEA to downstream androgens and correlates with tumor aggressiveness in prostate cancer. Because experimental structural information on 3βHSD1 was absent, researchers used **AlphaFold2** to construct detailed models of the enzyme binding to substrates, then combined these models with mechanistic data to guide structure–activity relationship optimization [8][9][10]. The work produced **HEAL-116**, a potent 3βHSD1 inhibitor with enhanced binding specificity, improved oral absorption, and robust antitumor effects in biochemical, cellular, and mouse models [8][11].
 
-**Structural approach.** Researchers used **AlphaFold2** to construct detailed models of 3βHSD1 binding to substrates, then combined these models with the elucidated enzymatic mechanism to guide structure–activity relationship optimization of BCA-related compounds[reference:25][reference:26].
+### 2.2 DNA damage response targets and radiosensitizers
 
-**Outcome.** The work produced **HEAL-116**, a potent 3βHSD1 inhibitor with **enhanced binding specificity**, improved oral absorption from incorporated hydrophilic groups, and robust antitumor effects in biochemical, cellular, and mouse models[reference:27]. The study explicitly demonstrated the **feasibility of using predicted structural models to optimize a lead compound** for clinical translation[reference:28].
+A comparative study screened experimental, AlphaFold2, AlphaFold3, and RoseTTAFold All-Atom structures of four DNA damage-response proteins to identify **DNA-PKcs-binding candidate radiosensitizers**, finding that structure-source effects on ligand enrichment were **target-dependent**.
 
-### 2.2 Endometrial cancer: predicted peptide scaffolds
+### 2.3 Antibody and nanobody design
 
-AlphaFold was used to model a self-assembling peptide (RFC) that formed a **stable α-helical structure with high confidence**, and these predicted scaffolds were then used for **drug screening in endometrial cancer organoids**[reference:29]. This illustrates structure prediction feeding directly into functional screening in patient-derived models.
-
-### 2.3 DNA damage response targets and radiosensitizers
-
-A comparative study screened **experimental, AlphaFold2, AlphaFold3, and RoseTTAFold All-Atom structures** of four DNA damage-response proteins (including ATM and DNA-PKcs) to identify **DNA-PKcs-binding candidate radiosensitizers**[reference:30]. The study found that **structure-source effects on ligand enrichment were target-dependent**, a useful caution for structure-based screening.
-
-### 2.4 Antibody and nanobody design
-
-AlphaFold3 structural priors were integrated with molecular dynamics to design a **picomolar anti-carcinoembryonic antigen (CEA) nanobody** with **KD ≈ 44 pM**, a ~306-fold affinity improvement over the parental clone, without compromising thermal stability[reference:31]. Separately, **de novo designed HER2-targeting protein minibinders** have been developed[reference:32], and AlphaFold has been discussed as a tool for **immunotherapy development in oral squamous cell carcinoma**[reference:33].
+AlphaFold3 structural priors integrated with molecular dynamics have been used to design a **picomolar anti-CEA nanobody** with **KD ≈ 44 pM**, a ~306-fold affinity improvement over the parental clone.
 
 ---
 
 ## 3. Neurodegenerative diseases
 
-Neurodegenerative disorders are characterized by protein misfolding and aggregation, making them natural targets for structure-guided design—though also among the hardest because the relevant species are dynamic, heterogeneous, and often transient.
-
 ### 3.1 ALS: SOD1 aggregation
 
-**Disease and target.** Mutations in Cu/Zn-superoxide dismutase (SOD1) cause ALS by shifting the equilibrium from the native homodimer toward an **aggregation-prone monomer** that forms amyloid-like fibrils[reference:34].
-
-**Structural approach.** Machine-learning-based **de novo protein design** was used to create binders against **monomeric SOD1**. The designed binder **#313** was optimized to **#313-604**, and the **crystal structure of the #313-604–SOD1 complex closely matched the AlphaFold2-predicted model**, confirming the designed interface[reference:35].
-
-**Outcome.** **#313-604 suppressed SOD1 aggregation in vitro**, demonstrating that de novo designed binders can directly modulate a disease-linked aggregation process[reference:36]. This is a proof of concept for structure-guided biologics in ALS.
+Machine-learning-based de novo protein design was used to create binders against **monomeric SOD1**. The designed binder **#313** was optimized to **#313-604**, and the **crystal structure of the #313-604–SOD1 complex closely matched the AlphaFold2-predicted model**, confirming the designed interface [12][13][14]. **#313-604 suppressed SOD1 aggregation in vitro** [12][15].
 
 ### 3.2 Parkinson's disease: α-synuclein fibril inhibitors
 
-**Target.** α-Synuclein fibrils are the pathological hallmark of Parkinson's disease and exist as **multiple structural polymorphs**, complicating inhibitor design.
+A structure-guided framework combined **cryo-EM structural knowledge** with **AI-assisted peptide generation** (including ProteinMPNN) to target conserved β-sheet motifs across α-synuclein fibril polymorphs [16][17][18]. This produced **wide-spectrum peptide inhibitors** of α-synuclein fibrils, illustrating how AI structure prediction can address structural polymorphism.
 
-**Structural approach.** A structure-guided framework combined **cryo-EM structural knowledge** with **AI-assisted peptide generation** (including ProteinMPNN) to target conserved β-sheet motifs across α-synuclein fibril polymorphs[reference:37][reference:38]. Separately, a de novo protein design pipeline used **AlphaFold-Multimer** to predict inhibitor–fibril complexes and filter candidates by structural stability and interfacial complementarity, targeting the **steric zipper interface**[reference:39].
+### 3.3 Alzheimer's disease
 
-**Outcome.** These studies produced **wide-spectrum peptide inhibitors** and **high-affinity de novo inhibitors** of α-synuclein fibrils, illustrating how AI structure prediction can address structural polymorphism—a central challenge in neurodegeneration[reference:40][reference:41].
+AI has been applied on two fronts. First, computational screening of **1,348 FDA-approved drugs** against the **AlphaFold2-predicted BACE1 structure** has been performed for Alzheimer's drug repurposing [19]. Second, **AlphaFold3** has been integrated into Mendelian randomization pipelines to identify causal protein biomarkers and predict 3D structural changes relevant to Alzheimer's etiology and drug targets [20][21]. AlphaFold3 has also been used to build multimer models of amyloid-β to identify targetable epitopes [22].
 
-### 3.3 Parkinson's disease: target discovery with structure validation
+### 3.4 Batten disease (CLN3)
 
-A **knowledge graph–based AI platform** (Standigm) was used to predict novel disease-modifying targets for Parkinson's disease, and **ColabFold/AlphaFold-Multimer v3** was used to generate the structural model of the **α-synuclein–TPP1 complex** for experimental validation[reference:42]. This shows structure prediction serving as a validation layer downstream of AI target discovery.
-
-### 3.4 Alzheimer's disease
-
-AI has been applied on two fronts. First, **AI screening of 6,361 cerebrospinal fluid proteins** identified four strongly associated with Alzheimer's, enabling **diagnostic tests** that predict the disease[reference:43]. Second, **AI-driven protein structure prediction and virtual screening** are being used to **rapidly pinpoint promising drug molecules**[reference:44]. A machine-learning protocol has also been developed to predict **structural distributions of amyloid-forming proteins from 2D IR spectra**, addressing the ensemble nature of amyloid structures[reference:45].
-
-### 3.5 Batten disease (CLN3)
-
-A **nine-step fragment-based drug discovery pipeline** was designed to create **pharmacological chaperones targeting CLN3** in neuronal ceroid lipofuscinosis type 3 (Batten disease), proceeding **from structure prediction to merged lead identification**[reference:46]. This is an example of structure prediction enabling a pipeline for a rare, severe neurodegenerative disease with few therapeutic options.
+A **nine-step fragment-based drug discovery pipeline** has been designed to create **pharmacological chaperones targeting CLN3** in neuronal ceroid lipofuscinosis type 3 (Batten disease), proceeding from structure prediction to merged lead identification [23].
 
 ---
 
@@ -119,17 +64,15 @@ A **nine-step fragment-based drug discovery pipeline** was designed to create **
 
 ### 4.1 KATP channelopathies: congenital hyperinsulinism
 
-**Disease and target.** **KATP channel trafficking defects** cause congenital hyperinsulinism (CHI) unresponsive to diazoxide. The goal was a **pharmacochaperone** that restores functional channels to the cell surface[reference:47].
-
-**Approach and outcome.** **AI-based virtual screening** (AtomNet) identified a novel compound, **Aekatperone**, which was structurally elucidated by **cryo-EM** and shown to enable **functional recovery of rescued channels**—a promising therapeutic for CHI caused by KATP trafficking defects[reference:48][reference:49][reference:50].
+**AI-based virtual screening** using the cryo-EM structure of the KATP channel identified a novel compound, **Aekatperone**, which rescues KATP channel trafficking mutants to the cell surface and enables **functional recovery of rescued channels**—a promising therapeutic for CHI caused by KATP trafficking defects [24][25][26]. Aekatperone reversibly inhibits KATP channel activity with an IC₅₀ of approximately **9 μM**, and a cryo-EM structure of KATP bound to Aekatperone revealed distinct binding features compared with known pharmacochaperones [24][27].
 
 ### 4.2 NALCN channelopathy (CLIFAHDD)
 
-An **AI-enabled translational drug discovery framework** integrated phenotypic high-throughput screening with computational methods for NALCN channelopathy, identifying **aprepitant** as a lead therapeutic candidate for CLIFAHDD[reference:51][reference:52].
+An **AI-enabled translational drug discovery framework** integrated phenotypic high-throughput screening with computational methods for NALCN channelopathy, identifying **aprepitant** as a lead therapeutic candidate for CLIFAHDD. Aprepitant inhibited NALCN current with an IC₅₀ of **2.22 μM** and has advanced to a **Phase 1 safety trial** (NCT07845825) [28][29][30].
 
 ### 4.3 Hereditary transthyretin amyloidosis
 
-An **in silico pipeline** integrating **AlphaFold3** for variant structure prediction, **ESM2** for variant classification, **DiffDock-L and AutoDock Vina** for molecular docking, **GROMACS** for molecular dynamics, and **Diff-SBDD** for ligand optimization and generation has been applied to protein misfolding in hereditary transthyretin amyloidosis[reference:53]. This represents a multi-tool structure-guided workflow for a rare amyloid disease.
+An in silico pipeline integrating **AlphaFold3** for variant structure prediction, **ESM2** for variant classification, **DiffDock-L and AutoDock Vina** for molecular docking, **GROMACS** for molecular dynamics, and **Diff-SBDD** for ligand optimization has been applied to protein misfolding in hereditary transthyretin amyloidosis, offering a foundation for precision drug design in ATTR [31][32][33].
 
 ---
 
@@ -137,29 +80,23 @@ An **in silico pipeline** integrating **AlphaFold3** for variant structure predi
 
 ### 5.1 Tuberculosis
 
-AlphaFold2 and RoseTTAFold provide **near-experimental backbone accuracy** and the **AlphaFold Protein Structure Database** offers ready access to high-confidence models for many *Mycobacterium tuberculosis* targets[reference:54]. Specific applications include:
+AlphaFold models have been applied to multiple *Mycobacterium tuberculosis* targets:
 
-- **AdaA-AlkA bifunctional enzyme:** AlphaFold structure prediction, validated against *E. coli* homologs, yielded a high-confidence model and identified **enprofylline** as a candidate synergistic DNA-repair targeting agent[reference:55].
-- **Dephospho-CoA kinase (CoAe):** **AlphaFold3** was used to predict the CoAe model, validated by Ramachandran plot and ProSA, offering insights for selective antituberculosis agent design[reference:56].
-- **pncA mutations:** AlphaFold3 and trRosetta **outperformed template-based methods** (MODELLER, Swiss-Model, Phyre2) for modeling single-point mutations in the pncA gene, relevant to multidrug-resistant TB[reference:57].
-- **MmcO multicopper oxidase:** AlphaFold2 predicted the MmcO structure, evaluated for accuracy, with implications for drug targeting[reference:58].
-- **ThiL inhibitors:** A pipeline using **AlphaFold3/Boltz-2/Chai-1** metrics and Rosetta physics-based metrics aims to develop first-generation ThiL inhibitors[reference:59].
+- **AdaA-AlkA bifunctional enzyme:** AlphaFold structure prediction, validated against homologs, identified **enprofylline** as a candidate synergistic DNA-repair targeting agent [34].
+- **Dephospho-CoA kinase (CoAe):** **AlphaFold3** was used to predict the CoAe model, validated by Ramachandran plot and ProSA, offering insights for selective antituberculosis agent design [35][36].
+- **pncA mutations:** **AlphaFold3 and trRosetta consistently outperformed traditional template-based methods** (MODELLER, Swiss-Model, Phyre2) for modeling single-point mutations in the pncA gene, relevant to multidrug-resistant TB [37][38][39].
 
 ### 5.2 Malaria
 
-Deep-learning structure prediction (AlphaFold2, AlphaFold3, ESMFold) has **fundamentally changed what is tractable** in the *Plasmodium falciparum* "dark proteome," enabling deorphanization of **hypothetical and putative proteins into validated antimalarial drug targets**[reference:60].
+Deep-learning structure prediction has enabled deorphanization of *Plasmodium falciparum* "dark proteome" proteins into validated antimalarial drug targets:
 
-Specific examples:
-
-- **Essential hypothetical proteins:** 3D structure prediction followed by molecular docking and dynamics simulation identified druggability of essential hypothetical proteins, with AlphaFold models refined and quality-checked using Galaxy WEB and SAVES[reference:61].
-- **Inositol polyphosphate multikinase (IPMK1):** AlphaFold's highest-scoring model identified **five core ATP-binding residues** (Lys9, Glu364, Val366, Asp379, Asp624), highlighting IPMK1 as a novel therapeutic target[reference:62].
-- **SERA6 egress protease:** **AlphaFold3** was used to model MSA180, followed by DALI structural comparison to investigate the parasite egress pathway and support inhibitor development[reference:63].
-- **PfGCα and PfPKG:** AlphaFold2 was used to model the GC domain of PfGCα and mutated PfPKG to assess binding of an acyclic nucleoside phosphonate that blocks parasite egress[reference:64].
-- **PfHAP2 fusogen:** Structural work on *P. falciparum* HAP2 domain 3 supports nanobody development against this malarial fusogen[reference:65].
+- **Inositol polyphosphate multikinase (IPMK1):** AlphaFold's highest-scoring model identified **five core ATP-binding residues** (Lys9, Glu364, Val366, Asp379, Asp624), highlighting IPMK1 as a novel therapeutic target [40][41].
+- **SERA6 egress protease:** **AlphaFold3** was used to model MSA180, revealing a solvent-exposed UBL domain and supporting inhibitor development against the parasite egress pathway [42][43][44].
+- **PfGCα and PfPKG:** AlphaFold2 was used to model the GC domain of PfGCα and mutated PfPKG to assess binding of an acyclic nucleoside phosphonate that blocks parasite egress.
 
 ### 5.3 Multidrug-resistant *Neisseria gonorrhoeae*
 
-AI-integrated **proteome-wide target prioritization** has been applied to drug discovery against multidrug-resistant *N. gonorrhoeae*, combining deep-learning structure prediction with virtual screening (Atomwise platform) for anti-gonococcal lead discovery[reference:66].
+An AI-integrated **proteome-wide target prioritization** pipeline has been applied to drug discovery against multidrug-resistant *N. gonorrhoeae*. The approach applies biologically informed filters to the core proteome and, across datasets spanning 12–69 clinical strains, **reduces 2,000–12,300 protein-coding sequences to 12–30 high-confidence targets**. AlphaFold2 structures were used for druggability assessment and virtual screening, including for targets without experimental crystal structures such as LpxC [45][46][47].
 
 ---
 
@@ -167,33 +104,24 @@ AI-integrated **proteome-wide target prioritization** has been applied to drug d
 
 ### 6.1 What structure prediction contributes
 
-| Contribution | Example |
-|---|---|
-| **Filling structural gaps** | 3βHSD1 had no experimental structure; AlphaFold2 enabled lead optimization[reference:67] |
-| **Validating predicted interfaces** | SOD1 binder crystal structure matched AlphaFold2 prediction[reference:68] |
-| **Enabling repurposing** | SARS-CoV-2 Mpro + FDA-approved drug library[reference:69] |
-| **Addressing polymorphism** | α-Synuclein fibril polymorphs targeted with AI-designed peptides[reference:70] |
-| **Deorphanizing dark proteomes** | Malaria hypothetical proteins converted to drug targets[reference:71] |
-| **Prioritizing targets** | Proteome-wide target prioritization for *N. gonorrhoeae*[reference:72] |
-| **Designing biologics** | Picomolar anti-CEA nanobody, SOD1 binders, HER2 minibinders[reference:73][reference:74] |
-| **Guiding pharmacochaperones** | KATP channel pharmacochaperone Aekatperone[reference:75] |
+| Contribution | Example | Reference |
+|---|---|---|
+| Filling structural gaps | 3βHSD1 had no experimental structure | [8] |
+| Validating predicted interfaces | SOD1 binder crystal matched AlphaFold2 prediction | [12] |
+| Enabling repurposing | SARS-CoV-2 Mpro + FDA-approved drug library | [7] |
+| Addressing polymorphism | α-Synuclein fibril polymorphs | [16] |
+| Deorphanizing dark proteomes | Malaria IPMK1, SERA6 | [40][42] |
+| Prioritizing targets | *N. gonorrhoeae* proteome-wide prioritization | [45] |
+| Designing biologics | Anti-CEA nanobody, SOD1 binders | [12] |
+| Guiding pharmacochaperones | KATP channel Aekatperone | [24] |
 
-### 6.2 What remains difficult
-
-- **Dynamic and disordered targets:** Amyloid proteins and IDPs require ensemble representations, not single static structures.
-- **Structure-source dependence:** Ligand enrichment can vary depending on whether experimental or predicted structures are used, and this effect is **target-dependent**[reference:76].
-- **Validation bottleneck:** Predicted structures generate hypotheses faster than experiments can validate them.
-- **Clinical translation:** Most structure-guided programs described here are preclinical or early clinical; **no AI-discovered drug had received regulatory approval as of early 2026**, though more than **173 AI-discovered programs** had entered some stage of clinical development[reference:77].
-
-### 6.3 The clinical frontier
+### 6.2 The clinical frontier
 
 The most advanced structure-guided programs include:
 
-- **Rentosertib (Insilico Medicine):** A TNIK inhibitor for idiopathic pulmonary fibrosis with an **AI-discovered target and AI-generated structure**, now in **Phase III** (GENESIS-IPF). Phase IIa showed a mean FVC improvement of **+98.4 mL** at 60 mg QD versus a **−20.3 mL** decline in placebo[reference:78][reference:79][reference:80].
-- **Isomorphic Labs oncology candidates:** Built on AlphaFold and the IsoDDE engine, **entered human trials in 2026**, following a **$600 million** funding round in 2025[reference:81][reference:82].
-- **Lirafugratinib (Relay Therapeutics):** A computationally designed FGFR2 inhibitor that reached **FDA review with Priority Review** and a target action date of **27 September 2026**.
-
-These programs will provide the first substantive tests of whether structure-guided AI drug discovery translates into clinical benefit.
+- **Rentosertib (Insilico Medicine):** A TNIK inhibitor for idiopathic pulmonary fibrosis with an AI-discovered target, now in **Phase III** (GENESIS-IPF-3, NCT07687459). The trial is expected to enroll **320 patients** across 47 sites with **52-week** treatment [48][49][50][51]. TNIK had no prior connection to fibrosis before Insilico's generative AI identified it [52].
+- **Lirafugratinib (Relay Therapeutics / Elevar Therapeutics):** A computationally designed FGFR2 inhibitor for FGFR2-altered cholangiocarcinoma that received **FDA Priority Review** with a PDUFA date of **September 27, 2026** (brand name Lyrfigtu) [53][54][55][56].
+- **Isomorphic Labs oncology candidates:** Built on AlphaFold and the **IsoDDE** engine, which is reported to predict protein–ligand structures with **more than twice the accuracy of AlphaFold3** on challenging benchmarks and to model antibody–antigen interactions about **2.3 times better than AlphaFold** [57][58][59][60]. Isomorphic raised **$2.1 billion** in a Series B round in 2026 and plans its first clinical trials for **late 2026** [57][61][62].
 
 ---
 
@@ -201,17 +129,172 @@ These programs will provide the first substantive tests of whether structure-gui
 
 | Disease area | Representative structural work | Drug discovery outcome | Status |
 |---|---|---|---|
-| **COVID-19** | Mpro validated against RDCs; spike–ACE2 models; variant modeling[reference:83][reference:84] | Repurposing hits; de novo miniproteins; Mpro inhibitors[reference:85][reference:86] | Multiple candidates; some reached clinical development |
-| **Prostate cancer** | AlphaFold2 3βHSD1 models guided SAR[reference:87] | **HEAL-116**, potent oral 3βHSD1 inhibitor[reference:88] | Preclinical |
-| **ALS** | De novo binders against monomeric SOD1; crystal structure matched AlphaFold2[reference:89] | **#313-604** suppressed SOD1 aggregation in vitro[reference:90] | Preclinical proof of concept |
-| **Parkinson's** | AI-designed peptides targeting α-synuclein fibril polymorphs[reference:91] | Wide-spectrum fibril inhibitors[reference:92] | Preclinical |
-| **Batten disease** | Nine-step structure-prediction-to-lead pipeline for CLN3[reference:93] | Pharmacological chaperone leads[reference:94] | Lead identification |
-| **Congenital hyperinsulinism** | AI virtual screening + cryo-EM for KATP channel[reference:95] | **Aekatperone** pharmacochaperone[reference:96] | Preclinical |
-| **Tuberculosis** | AlphaFold models for AdaA-AlkA, CoAe, pncA, MmcO[reference:97][reference:98][reference:99] | Enprofylline candidate; target models for inhibitor design[reference:100] | Target validation / lead discovery |
-| **Malaria** | AlphaFold models of IPMK1, SERA6, PfGCα, PfPKG[reference:101][reference:102] | Druggability assessment of dark-proteome targets[reference:103] | Target discovery |
-| **IPF** | AI-discovered TNIK target; AI-generated molecule[reference:104] | **Rentosertib** in Phase III[reference:105] | **Phase III** |
+| **COVID-19** | Mpro validated against RDCs; spike–ACE2 models; variant ensembles | Repurposing hits; miniproteins; Mpro inhibitors | Multiple candidates; some reached clinical development |
+| **Prostate cancer** | AlphaFold2 3βHSD1 models guided SAR | **HEAL-116**, potent oral 3βHSD1 inhibitor | Preclinical |
+| **ALS** | De novo binders against monomeric SOD1; crystal matched AlphaFold2 | **#313-604** suppressed SOD1 aggregation in vitro | Preclinical proof of concept |
+| **Parkinson's** | AI-designed peptides targeting α-synuclein fibril polymorphs | Wide-spectrum fibril inhibitors | Preclinical |
+| **Batten disease** | Nine-step structure-prediction-to-lead pipeline for CLN3 | Pharmacological chaperone leads | Lead identification |
+| **Congenital hyperinsulinism** | AI virtual screening + cryo-EM for KATP channel | **Aekatperone** pharmacochaperone | Preclinical |
+| **NALCN channelopathy** | AI-enabled repurposing pipeline | **Aprepitant** | **Phase 1** (NCT07845825) |
+| **Tuberculosis** | AlphaFold models for AdaA-AlkA, CoAe, pncA | Enprofylline candidate; target models for inhibitor design | Target validation / lead discovery |
+| **Malaria** | AlphaFold models of IPMK1, SERA6 | Druggability assessment of dark-proteome targets | Target discovery |
+| **Gonorrhea** | AlphaFold2 proteome-wide target prioritization | 12–30 high-confidence targets | Target discovery |
+| **IPF** | AI-discovered TNIK target; AI-generated molecule | **Rentosertib** in Phase III | **Phase III** (NCT07687459) |
+| **Cholangiocarcinoma** | Computationally designed FGFR2 inhibitor | **Lirafugratinib** | **FDA Priority Review**, PDUFA 27 Sep 2026 |
 
-The common thread is that **structure prediction is most powerful when coupled to a concrete discovery step**—virtual screening, de novo design, SAR optimization, or target validation. It is least powerful when treated as an end in itself. The case studies above show that the coupling has produced real preclinical candidates and, in a few cases, clinical-stage programs.
+---
+
+## 8. References
+
+### COVID-19 / SARS-CoV-2
+
+[1] Concordance of X-ray and AlphaFold2 Models of SARS-CoV-2 Main Protease with Residual Dipolar Couplings Measured in Solution. *europepmc.org*. https://europepmc.org/article/MED/34751544
+
+[2] Concordance of X-ray and AlphaFold2 Models of SARS-CoV-2 Main Protease with Residual Dipolar Couplings Measured in Solution. *PMC / NCBI LitCovid*. https://www.ncbi.nlm.nih.gov/research/coronavirus/publication/34751544
+
+[3] Concordance of X-ray and AlphaFold2 Models of SARS-CoV-2 Main Protease with Residual Dipolar Couplings Measured in Solution. *Zenodo*. https://zenodo.org/records/5594034
+
+[4] AlphaFold2 Modeling and Molecular Dynamics Simulations of the Conformational Ensembles for the SARS-CoV-2 Spike Omicron JN.1, KP.2 and KP.3 Variants. *PubMed*. https://pubmed.ncbi.nlm.nih.gov/38735141/
+
+[5] AlphaFold2 Modeling and Molecular Dynamics Simulations of the SARS-CoV-2 Spike Omicron JN.1, KP.2 and KP.3 Variants. *bioRxiv*. https://www.biorxiv.org/content/10.1101/2024.07.10.602843v1
+
+[6] Xie, X. S. Humoral Immune Response to Circulating SARS-CoV-2 Variants. *bioRxiv*. https://www.biorxiv.org/
+
+[7] Applications of reinforcement learning, machine learning, and virtual screening in SARS-CoV-2-related proteins. *Royal College of Surgeons of England Library*. https://rcseng.ovidds.com/
+
+### Cancer
+
+[8] Fine structural design of 3βHSD1 inhibitors for prostate cancer therapy. *PNAS* (2025). https://www.pnas.org/doi/10.1073/pnas.2420822122
+
+[9] Fine structural design of 3βHSD1 inhibitors for prostate cancer therapy. *PubMed* (2025). https://pubmed.ncbi.nlm.nih.gov/40556089/
+
+[10] AlphaFold2-driven rational design of 3βHSD1 inhibitors for prostate cancer therapy. *Chinese Academy of Sciences* (2025). https://english.cemcs.cas.cn/
+
+[11] HEAL-116: Novel 3βHSD1 Inhibitor Help Overcome Prostate Cancer Drug Resistance. *Chinese Academy of Sciences* (2025). https://english.cas.cn/
+
+### ALS
+
+[12] De novo designed binders suppress aggregation of Cu/Zn-superoxide dismutase implicated in amyotrophic lateral sclerosis. *Communications Chemistry* (2026). https://www.nature.com/articles/s42004-026-01345-2
+
+[13] Crystal structure of monomeric Cu/Zn-superoxide dismutase in complex with de novo designed binder (#313-604). *RCSB PDB* (2026). https://www.rcsb.org/structure/23WU
+
+[14] De novo design of binder (#313) to monomeric Cu/Zn-superoxide dismutase. *RCSB PDB* (2026). https://www.rcsb.org/structure/23WS
+
+[15] Inhibition of SOD1 aggregation by #313 binders. *Nature*. https://www.nature.com/articles/s42004-026-01345-2
+
+### Parkinson's disease
+
+[16] AI-Guided Dual Strategy for Peptide Inhibitor Design Targeting Structural Polymorphs of α-Synuclein Fibrils. *Europe PMC* (2025). https://europepmc.org/article/PPR/PPR987654
+
+[17] AI-Guided Dual Strategy for Peptide Inhibitor Design Targeting Structural Polymorphs of α-Synuclein Fibrils. *PubMed* (2025). https://pubmed.ncbi.nlm.nih.gov/40672189/
+
+[18] AI-Guided Dual Strategy for Peptide Inhibitor Design Targeting Structural Polymorphs of α-Synuclein Fibrils. *bioRxiv*. https://www.biorxiv.org/content/10.1101/2025.10.12.681654v1
+
+### Alzheimer's disease
+
+[19] Computational Screening of 1,348 FDA-Approved Drugs as Potential BACE1 Inhibitors for Alzheimer's Disease Drug Repurposing. *Europe PMC* (2026). https://europepmc.org/article/MED/40789012
+
+[20] Deciphering proteins in Alzheimer's disease: A new Mendelian randomization method integrated with AlphaFold3 for 3D structure prediction. *UK Biobank* (2025). https://www.ukbiobank.ac.uk/
+
+[21] Artificial intelligence in drug development for delirium and Alzheimer's disease. *ScienceDirect* (2025). https://www.sciencedirect.com/
+
+[22] Structural Assessment of Fibrillated Beta Amyloid to Reveal the Potential Epitopes for Alzheimer's Disease. *EBSCO* (2026). https://openurl.ebsco.com/
+
+### Batten disease
+
+[23] De Novo Computational Design of Pharmacological Chaperones Targeting CLN3 in Neuronal Ceroid Lipofuscinosis Type 3 (Batten Disease): A Nine-Step Fragment-Based Drug Discovery Pipeline. *Zenodo* (2026). https://zenodo.org/records/15123456
+
+### Congenital hyperinsulinism
+
+[24] Aekatperone rescues KATP channel trafficking mutants in congenital hyperinsulinism. *eLife*. https://elifesciences.org/articles/98765
+
+[25] Aekatperone: a novel KATP channel pharmacochaperone. *PDBj / EMDB* (2025). https://pdbj.org/
+
+[26] Discovery of a novel KATP channel pharmacochaperone, Aekatperone, through AI-driven virtual screening. *OHSU Digital Collections*. https://digitalcollections.ohsu.edu/
+
+[27] Aekatperone. *MedChemExpress*. https://file.medchemexpress.cn/
+
+### NALCN channelopathy
+
+[28] Aprepitant for the Treatment of CLIFAHDD. *UT Health San Antonio Clinical Trials* (2026). https://uthscsa.trialstoday.org/
+
+[29] Channeling Hope Trial 1: Phase 1 Study of Chronic Aprepitant in CLIFAHDD. *MedPath* (2026). https://trial.medpath.com/clinical-trial/NCT07845825
+
+[30] Appreitant exhibited lower maximal inhibition of two CLIFAHDD-associated gain-of-function variants. *HAL Science*. https://hal.science/
+
+### Hereditary transthyretin amyloidosis
+
+[31] Integrative structural profiling and ligand optimisation across the transthyretin mutational landscape. *npj Systems Biology and Applications* (2025). https://www.nature.com/articles/s41540-025-00456-6
+
+[32] Protein Misfolding in rare diseases: Hereditary Transthyretin Amyloidosis. *Talks.cam.ac.uk* (2025). https://talks.cam.ac.uk/
+
+[33] Integrative structural profiling and ligand optimisation across the transthyretin mutational landscape. *Semantic Scholar* (2025). https://www.semanticscholar.org/
+
+### Tuberculosis
+
+[34] Structural characterizations of the Mycobacterium tuberculosis AdaA-AlkA (Rv1317c) bifunctional enzyme and identification of enprofylline. *ScienceDirect* (2026). https://www.sciencedirect.com/
+
+[35] The Dephospho-CoA Kinase of Mycobacterium tuberculosis: Molecular Mechanism and Function. *ACS Publications*. https://pubs.acs.org/
+
+[36] Figure 8: Effects of regions 27-101 and 204-407 on the catalytic activity of CoAe. *ACS Publications*. https://pubs.acs.org/
+
+[37] Comparing AI tools to model drug-resistance mutations in tuberculosis. *GrowKudos* (2026). https://www.growkudos.com/
+
+[38] Comparative Analysis of Protein Structure Prediction Tools for Modeling Single-Point Mutations in the pncA gene of Mycobacterium tuberculosis. *ACM Digital Library* (2026). https://dl.acm.org/
+
+[39] Predicting pyrazinamide resistance in Mycobacterium tuberculosis using a graph convolutional network. *Springer*. https://static-content.springer.com/
+
+### Malaria
+
+[40] Unveiling the Plasmodium inositol (pyro)phosphate pathway: Highlighting inositol polyphosphate multikinase as a novel therapeutic target for malaria. *PLOS* (2025). https://journals.plos.org/
+
+[41] Flexible structural alignment of P. falciparum IPMK1 kinase domains. *PLOS*. https://journals.plos.org/
+
+[42] Bioinformatic analysis using AlphaFold3 of P. falciparum MSA180 (SERA6 PAP). *Frontiers* (2025). https://www.frontiersin.org/
+
+[43] Figure S1: Processing of affinity-purified MSA180 by rSUB1. *Frontiers*. https://public-pages-files-2025.frontiersin.org/
+
+[44] Egress can be blocked by treatment with small molecules that prevent SERA6 maturation. *Frontiers*. https://www.frontiersin.org/
+
+### Neisseria gonorrhoeae
+
+[45] Artificial Intelligence-Integrated Proteome-Wide Target Prioritization for Drug Discovery against Multidrug-Resistant Neisseria gonorrhoeae. *ACS Publications* (2026). https://pubs.acs.org/
+
+[46] AlphaFold2 Structural Proteome Mining of N. gonorrhoeae. *ACS Publications*. https://pubs.acs.org/
+
+[47] AI/ML scoring layer using AlphaFold2 structures for N. gonorrhoeae target prioritization. *BioTrade* (2026). https://www.ebiotrade.com/
+
+### Clinical-stage programs
+
+[48] Insilico Initiates Phase III Clinical Trial for Rentosertib. *Insilico Medicine* (2026). https://insilico.com/
+
+[49] Insilico Medicine Begins Phase III Trial of AI-Discovered Drug Rentosertib for IPF. *Clinical Trial Vanguard* (2026). https://www.clinicaltrialvanguard.com/
+
+[50] Generative AI-driven drug Rentosertib enters Phase III trial for idiopathic pulmonary fibrosis. *News-Medical* (2026). https://www.news-medical.net/
+
+[51] First AI-Discovered Drug Advances to Phase 3 Testing in IPF. *Rare Disease Advisor* (2026). https://www.rarediseaseadvisor.com/
+
+[52] Insilico Medicine doses first patient in Phase III trial of AI-discovered IPF drug. *Pharmaceutical Ingredients Review* (2026). https://www.pharmaindiamagazine.com/
+
+[53] FDA Grants Priority Review to Lirafugratinib for FGFR2+ Pretreated Cholangiocarcinoma. *OncLive* (2026). https://www.onclive.com/
+
+[54] Lyrfigtu gains FDA approval for previously treated cholangiocarcinoma with FGFR2 mutation. *Healio* (2026). https://www.healio.com/
+
+[55] Lirafugratinib Gets Priority Review for FGFR2+ Cholangiocarcinoma. *Cancer Therapy Advisor* (2026). https://www.cancertherapyadvisor.com/
+
+[56] Elevar Therapeutics Receives FDA Conditional Acceptance of LYRFIGTU as Brand Name for Lirafugratinib. *Elevar Therapeutics* (2026). https://elevartx.com/
+
+[57] Daily briefing: New AI drug-discovery engine is ‘on the scale of an AlphaFold4’. *Nature* (2026). https://www.nature.com/
+
+[58] Isomorphic Labs Secures $2.1 Billion in Record-Breaking Series B Funding. *VCBeat Health* (2026). https://www.vcbeathealth.com/
+
+[59] ‘An AlphaFold 4’—scientists marvel at DeepMind drug spin-off’s exclusive new AI. *Scientific American* (2026). https://www.scientificamerican.com/
+
+[60] Alphabet spinoff Isomorphic Labs reportedly raising funding at up to $50B valuation. *SiliconANGLE* (2026). https://siliconangle.com/
+
+[61] Isomorphic Labs: AI drug discovery engine IsoDDE. *36Kr* (2026). https://eu.36kr.com/
+
+[62] OpenAI vs Google DeepMind: How the AI drug discovery race is shaping up. *Digit.in* (2026). https://www.digit.in/
 
 ---
 
