@@ -46,3 +46,6 @@ Both predicted and experimental structures often **lack waters or other small mo
 ## Bottom line
 
 AI protein structure prediction is a powerful toolkit. **AlphaFold2, AlphaFold3, RoseTTAFold, ESMFold/ESMFold2, and co-folding models such as Chai-1, Boltz, and Protenix** represent core methodologies, and newer models continue to expand the ecosystem. The best approach is usually to **combine tools, inspect confidence metrics in context, and validate biologically important predictions**—while remaining aware that a static, high-confidence model is not the same as a mechanistic or functional understanding of the protein.
+---
+
+[Back to README](../README.md) | [Next: Applications](06-applications.md)
