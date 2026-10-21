@@ -12,6 +12,15 @@ A documentation set covering the main AI methods for protein structure predictio
 | 4 | [Choosing a Tool](docs/04-choosing-a-tool.md) | Selection guidance, benchmark context, and example workflows |
 | 5 | [Limitations and Interpretation](docs/05-limitations-and-interpretation.md) | Confidence scores, disorder, dynamics, conformational bias, and biological caveats |
 | 6 | [Applications](docs/06-applications.md) | What structural knowledge enables in biology, medicine, engineering, industry, and diagnostics |
+| 7 | [AI Drug Discovery Pipelines](docs/07-ai-drug-discovery-pipelines.md) | Stage-by-stage AI applications, representative company pipelines, and what the clinical readout will test |
+
+## Reading paths
+
+- **Newcomers:** 1 → 2 → 6
+- **Practitioners:** 2 → 4 → 5
+- **Drug discovery focus:** 2 → 3 → 7
+- **Strategy / ecosystem:** 3 → 6 → 7
+- **Full read:** 1 → 2 → 3 → 4 → 5 → 6 → 7
 
 ## Intended audience
 
