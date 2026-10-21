@@ -1,6 +1,6 @@
 # 07 — AI Drug Discovery Pipelines
 
-[Back to README](../README.md) | [Next: Disease Case Studies](08-disease-case-studies.md)
+[Back to README](../README.md) | [Previous: Applications](06-applications.md) | [Next: Disease Case Studies](08-disease-case-studies.md)
 
 Protein structure prediction is one component of a larger workflow. This document describes how AI is applied across the drug discovery pipeline—from target identification through preclinical development—and how the companies discussed earlier fit into that pipeline.
 
@@ -123,4 +123,4 @@ AI is reshaping **how molecules are found and optimized**, but the pipeline's ul
 
 ---
 
-[Back to README](../README.md) | [Previous: Applications](06-applications.md)
+[Back to README](../README.md) | [Next: Disease Case Studies](08-disease-case-studies.md)
