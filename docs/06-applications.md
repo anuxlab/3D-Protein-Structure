@@ -1,6 +1,6 @@
 # 06 — Applications: What Understanding Protein Structures Enables
 
-[Back to README](../README.md) | [Previous: Limitations and Interpretation](05-limitations-and-interpretation.md)
+[Back to README](../README.md) | [Previous: Limitations and Interpretation](05-limitations-and-interpretation.md) | [Next: AI Drug Discovery Pipelines](07-ai-drug-discovery-pipelines.md)
 
 Understanding protein structures is foundational across biology, medicine, and biotechnology because **structure determines function**—how a protein binds, catalyzes, signals, moves, and interacts with other molecules. This document summarizes what structural knowledge enables, organized by domain.
 
@@ -94,5 +94,4 @@ Historically, experimental structure determination (X-ray crystallography, cryo-
 In short: **structure is the bridge between sequence and function**, and understanding it underpins much of modern molecular medicine, biotechnology, and basic biology. AI prediction has not replaced that understanding—it has made it available at a scale that was previously impossible.
 
 ---
-
-[Back to README](../README.md) | [Previous: Limitations and Interpretation](05-limitations-and-interpretation.md)
+[Back to README](../README.md) | [Next: AI Drug Discovery Pipelines](07-ai-drug-discovery-pipelines.md)
